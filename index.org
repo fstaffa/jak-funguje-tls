@@ -8,11 +8,10 @@
 #+REVEAL_ROOT: https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/
 
 * Transport Layer Security
-** [[./images/osi2.jpg]]
-** 
 - soukromí
 - autentikace stran
 - integrita zpráv
+** [[./images/osi2.jpg]]
 ** 
    | Protokol | Publikován | End of life |
    | SSL 1.0  |          - |           - |
@@ -28,7 +27,7 @@
 ** TLS 1.0
 - podporuje problematické šifry
 - problém s AES-CBC
-- není povolen PCI
+- není povolen PCI DSS
 ** TLS 1.1
 - zlepšení AES-CBC
 ** TLS 1.2
@@ -36,7 +35,7 @@
 - odstranění slabých šifer
 - minimum pro HTTP2
 ** TLS 1.3
-- kompletní přepis
+- velké změny
 - omezuje šifry na pár bezpečných
 - rychlejší handshake
 - 0-RTT
