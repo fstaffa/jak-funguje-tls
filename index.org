@@ -1,0 +1,85 @@
+#+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/
+#+Title: Jak funguje TLS
+#+Author: Filip Štaffa
+#+Email: filip.staffa@gmail.com
+#+OPTIONS: email:true timestamp:nil
+#+OPTIONS: toc:nil
+#+OPTIONS: num:nil
+#+REVEAL_ROOT: https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/
+
+* Transport Layer Security
+** [[./images/osi2.jpg]]
+** 
+- soukromí
+- autentikace stran
+- integrita zpráv
+** 
+   | Protokol | Publikován | End of life |
+   | SSL 1.0  |          - |           - |
+   | SSL 2.0  |       1995 |        2011 |
+   | SSL 3.0  |       1996 |        2015 |
+   | TLS 1.0  |       1999 |        2020 |
+   | TLS 1.1  |       2006 |        2020 |
+   | TLS 1.2  |       2008 |             |
+   | TLS 1.3  |       2018 |             |
+** SSL 2 a SSL 3
+- obsahuje slabé šifry
+- pokud ho podporuje klient i server lze downgradovat z TLS na SSL
+** TLS 1.0
+- podporuje problematické šifry
+- problém s AES-CBC
+- není povolen PCI
+** TLS 1.1
+- zlepšení AES-CBC
+** TLS 1.2
+- podpora AES-GCM a AES-CCM
+- odstranění slabých šifer
+- minimum pro HTTP2
+** TLS 1.3
+- kompletní přepis
+- omezuje šifry na pár bezpečných
+- rychlejší handshake
+- 0-RTT
+** 
+[[./images/can-i-use-tls-11.png]]
+** 
+[[./images/can-i-use-tls-12.png]]
+** 
+[[./images/can-i-use-tls-13.png]]
+** Statistiky Qualys
+   | Protokol | Podpora stránek |
+   | SSL 2.0  | 1.6 %           |
+   | SSL 3.0  | 6.7 %           |
+   | TLS 1.0  | 65.0 %          |
+   | TLS 1.1  | 75.1 %          |
+   | TLS 1.2  | 96.0 %          |
+   | TLS 1.3  | 18.4 %          |
+* 
+[[./images/firefox-secured-example.png]]
+** 
+[[./images/firefox-secured-certificate-issuer.png]]
+** 
+[[./images/firefox-cipher-details.png]]
+** ECDHE-RSA
+** AES-128-GCM
+** SHA256
+* Handshake
+** 
+[[./images/tls-12-handshake.png]]
+** 
+[[./images/tls-13-handshake.png]]
+* Útoky
+** Downgrade
+ [[./images/tls-downgrade.png]]
+** Downgrage TLS
+- pouze verze TLS, ne šifry
+- TLS_FALLBACK_SCV mitigace
+* Důsledky
+** TLS 1.0 je prakticky bezpečné
+** Nepodporovat SSL
+** Podpora TLS 1.2
+** TLS 1.3 je rychlejší
+* Tipy
+- https://www.ssllabs.com/ssltest/
+- https://www.cloudflare.com/learning/ssl/transport-layer-security-tls/
+* Otázky
